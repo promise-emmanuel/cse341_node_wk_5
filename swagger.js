@@ -5,8 +5,8 @@ const doc = {
     title: 'My MarketPlace Project API',
     description: 'This API contains information about people who sell all kind of products,and the general information of the products they sell.',
   },
-  host: 'localhost:8080',
-  schemes: ['http'],
+  host: 'https://personal-project-qgjf.onrender.com',
+  schemes: ['https'],
 };
 
 const outputFile = './swagger.json';
