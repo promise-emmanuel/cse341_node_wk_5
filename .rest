@@ -28,6 +28,6 @@ content-type: application/json
     "condition": "Good working condition",
     "description": "This product has barely been used for two years. It is a 100 liter deep freezer.",
     "location": "idaho",
-    "userId": ""
+    "userId": "64696027d13a09ffebbd3c84"
 
 }
