@@ -1,4 +1,10 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
+router
+  .use((req, res, next) => {
+    res.removeHeader('Content-Type');
+    next();
+  })
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
 router.use('/api-docs', swaggerUi.serve);
