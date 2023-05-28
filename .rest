@@ -6,12 +6,20 @@ POST http://localhost:8080/users HTTP/1.1
 content-type: application/json
 
 {
-    "firstName": "Promise",
+    "firstName": "Katchy",
     "lastName": "Emmanuel",
-    "userName": "pronuel",
-    "email": "promise@gmail.com",
-    "password": "Pro2002@"
+    "userName": "katchymatthew",
+    "email": "matthew@gmail.com",
+    "password": "Katchy2002@"
 
+}
+
+###
+PUT http://localhost:8080/users HTTP/1.1
+content-type: application/json
+{
+    "firstName": "Joy",
+    "userName": "joymatthew",
 }
 
 ###
@@ -20,14 +28,17 @@ POST http://localhost:8080/Products HTTP/1.1
 content-type: application/json
 
 {
-   "productName": "Deep Freezer",
+   "productName": "smart tv",
     "brand": "LG",
-    "color": "grey",
-    "initialPrice": "$150",
-    "declutterPrice": "$50",
+    "color": "black",
+    "initialPrice": "$300",
+    "declutterPrice": "$150",
     "condition": "Good working condition",
-    "description": "This product has barely been used for two years. It is a 100 liter deep freezer.",
-    "location": "idaho",
-    "userId": "64696027d13a09ffebbd3c84"
+    "description": "This product has barely been used for two months.",
+    "location": "Rexburg",
+    "userId": ""
 
 }
+
+###
+DELETE http://localhost:8080/products/      HTTP/1.1

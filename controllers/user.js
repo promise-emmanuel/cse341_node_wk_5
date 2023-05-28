@@ -14,7 +14,9 @@ const getAllUser = async (req, res) => {
 };
 
 const getSingleUser = async (req, res) => {
-  try {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid user id to find a user.');
+  }
   const userId = new ObjectId(req.params.id);
   const result = await mongodb
     .getDb()
@@ -25,12 +27,12 @@ const getSingleUser = async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
   });
-} catch (err) {
-  res.status(500).json(err);
-}
+ if (err) {
+  res.status(500).json({message: err});}
 };
 
 const createUser = async (req, res) => {
+  
   try {
     const user = {
       firstName: req.body.firstName,
@@ -52,7 +54,10 @@ const createUser = async (req, res) => {
   };
   
   const updateUser = async (req, res) => {
-    try {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a valid user id to find a user.');
+    }
+    
     const userId = new ObjectId(req.params.id);
     // be aware of updateOne if you only want to update specific fields
     const user = {
@@ -74,12 +79,14 @@ const createUser = async (req, res) => {
     } else {
       res.status(500).json(response.error || 'Some error occurred while updating the contact.');
     }
-  } catch (err) {
-    res.status(500).json(err);
-  }
   };
   
+  
+  
   const deleteUser = async (req, res) => {
+    if (!ObjectId.isValid(req.params.id)) {
+      res.status(400).json('Must use a valid user id to find a user.');
+    }
     try {
     const userId = new ObjectId(req.params.id);
     const response = await mongodb.getDb().db('Project_week_5_to_8').collection('Users').deleteOne({ _id: userId }, true);
