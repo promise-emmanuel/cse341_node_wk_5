@@ -23,22 +23,22 @@ content-type: application/json
 }
 
 ###
+DELETE http://localhost:8080/users/6472e88158e87e43595332f1    HTTP/1.1
 
-POST http://localhost:8080/Products HTTP/1.1
-content-type: application/json
+# POST http://localhost:8080/Products HTTP/1.1
+# content-type: application/json
 
-{
-   "productName": "smart tv",
-    "brand": "LG",
-    "color": "black",
-    "initialPrice": "$300",
-    "declutterPrice": "$150",
-    "condition": "Good working condition",
-    "description": "This product has barely been used for two months.",
-    "location": "Rexburg",
-    "userId": ""
+# {
+#    "productName": "smart tv",
+    # "brand": "LG",
+    # "color": "black",
+    # "initialPrice": "$300",
+    # "declutterPrice": "$150",
+    # "condition": "Good working condition",
+    # "description": "This product has barely been used for two months.",
+    # "location": "Rexburg",
+    # "userId": ""
 
-}
+# }
 
 ###
-DELETE http://localhost:8080/products/      HTTP/1.1
