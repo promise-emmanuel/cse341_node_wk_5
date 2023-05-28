@@ -5,7 +5,7 @@ const doc = {
     title: 'MarketPlace Project API',
     description: 'This API contains information about people who sell all kind of products,and the general information of the products they sell.',
   },
-  host: 'https://personal-project-qgjf.onrender.com',
+  host: 'https://week-6.onrender.com',
   schemes: ['https'],
 };
 
