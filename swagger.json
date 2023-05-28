@@ -5,7 +5,7 @@
     "description": "This API contains information about people who sell all kind of products,and the general information of the products they sell.",
     "version": "1.0.0"
   },
-  "host": "https://personal-project-qgjf.onrender.com",
+  "host": "https://week-6.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
