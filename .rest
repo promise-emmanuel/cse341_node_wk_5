@@ -9,21 +9,26 @@ content-type: application/json
     "firstName": "Katchy",
     "lastName": "Emmanuel",
     "userName": "katchymatthew",
-    "email": "matthew@gmail.com",
+    "email": "matthewgmail.com",
     "password": "Katchy2002@"
 
 }
 
 ###
-PUT http://localhost:8080/users HTTP/1.1
-content-type: application/json
+
+PUT http://localhost:8080/users/64694ad607ba77b4701470a0 HTTP/1.1
+Content-Type: application/json
+
 {
     "firstName": "Joy",
-    "userName": "joymatthew",
+    "lastName": "Matthew",
+    "userName": "joymat",
+    "email": "ijoy@gmail.com",
+    "password": "joy1997@"
 }
 
 ###
-DELETE http://localhost:8080/users/6472e88158e87e43595332f1    HTTP/1.1
+DELETE http://localhost:8080/users/64737324dfbece8943a0a977    HTTP/1.1
 
 # POST http://localhost:8080/Products HTTP/1.1
 # content-type: application/json
