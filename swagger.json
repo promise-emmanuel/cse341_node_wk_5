@@ -5,7 +5,7 @@
     "description": "This API contains information about people who sell all kind of products,and the general information of the products they sell.",
     "version": "1.0.0"
   },
-  "host": "https://week-6.onrender.com",
+  "host": "week-6.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -96,6 +96,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "404": {
+            "description": "Not Found"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -142,6 +145,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "404": {
+            "description": "Not Found"
+          },
           "412": {
             "description": "Precondition Failed"
           },
@@ -166,6 +172,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
