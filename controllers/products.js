@@ -15,8 +15,8 @@ const getAllProducts = async (req, res) => {
 
 const getAllProductsBySeller = async (req, res) => {
     try {
-      const userId = new objectId(req.params.userId); 
-      const result = await mongodb.getDb().db('Project_week_5_to_8').collection('Products').find({ userId: userId });
+      const userName = req.params.userName; 
+      const result = await mongodb.getDb().db('Project_week_5_to_8').collection('Products').find({ userName: userName });
       result.toArray().then((lists) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(lists);
@@ -39,7 +39,7 @@ const createProduct = async (req, res) => {
       condition: req.body.condition,
       description: req.body.description,
       location: req.body.location,
-      userId: req.body.userId
+      userName: req.body.userName
 
     };
     const response = await mongodb.getDb().db('Project_week_5_to_8').collection('Products').insertOne(product);
