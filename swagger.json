@@ -75,7 +75,7 @@
         }
       }
     },
-    "/Users/{id}": {
+    "/Users/{userName}": {
       "get": {
         "description": "",
         "produces": [
@@ -83,7 +83,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "userName",
             "in": "path",
             "required": true,
             "type": "string"
@@ -108,7 +108,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "id",
+            "name": "userName",
             "in": "path",
             "required": true,
             "type": "string"
@@ -160,7 +160,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "id",
+            "name": "userName",
             "in": "path",
             "required": true,
             "type": "string"

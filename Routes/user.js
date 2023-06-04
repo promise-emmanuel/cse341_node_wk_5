@@ -5,13 +5,13 @@ const validation = require('../middleware/validate')
 
 router.get('/', userController.getAllUser);
 
-router.get('/:id', userController.getSingleUser);
+router.get('/:userName', userController.getSingleUser);
 
 router.post('/', validation.saveContact, userController.createUser);
 
-router.put('/:id', validation.saveContact, userController.updateUser);
+router.put('/:userName', validation.saveContact, userController.updateUser);
 
-router.delete('/:id', userController.deleteUser);
+router.delete('/:userName', userController.deleteUser);
 
 module.exports = router;
 

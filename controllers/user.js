@@ -15,28 +15,30 @@ const getAllUser = async (req, res) => {
 
 const getSingleUser = async (req, res) => {
   try {
-    if (!ObjectId.isValid(req.params.id)) {
-      return res.status(400).json('Must use a valid user id to find a user.');
+    const userName = req.params.userName;
+    if (!userName) {
+      return res.status(400).json('Must provide a valid username to find a user.');
     }
 
-    const userId = new ObjectId(req.params.id);
     const result = await mongodb
-    .getDb()
-    .db('Project_week_5_to_8')
-    .collection('Users')
-    .find({ _id: userId })
-    .toArray();
+      .getDb()
+      .db('Project_week_5_to_8')
+      .collection('Users')
+      .find({ userName: userName })
+      .toArray();
+
     if (result.length === 0) {
       return res.status(404).json('User not found.');
     }
+
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(result[0]);
     
   } catch (error) {
     console.error(error);
-    res.status(500).json({message: error});
+    res.status(500).json({ message: error });
   }
-}
+};
 
 
 const createUser = async (req, res) => {
@@ -64,11 +66,11 @@ const createUser = async (req, res) => {
   
   const updateUser = async (req, res) => {
   try{
-      if (!ObjectId.isValid(req.params.id)) {
+      if (!ObjectId.isValid(req.params.userName)) {
         return res.status(400).json('Must use a valid user id to find a user.');
       }
     
-    const userId = new ObjectId(req.params.id);
+    const userName = new ObjectId(req.params.userName);
     // be aware of updateOne if you only want to update specific fields
     const user = {
         firstName: req.body.firstName,
@@ -82,7 +84,7 @@ const createUser = async (req, res) => {
       .getDb()
       .db('Project_week_5_to_8')
       .collection('Users')
-      .replaceOne({ _id: userId }, user);
+      .replaceOne({ userName: userName }, user);
     // console.log(response);
     if (response.modifiedCount > 0) {
       res.status(204).send();
@@ -98,12 +100,12 @@ const createUser = async (req, res) => {
   
   const deleteUser = async (req, res) => {
     try {
-      if (!ObjectId.isValid(req.params.id)) {
+      if (!ObjectId.isValid(req.params.userName)) {
         return res.status(400).json('Must use a valid user id to find a user.');
       }
   
-      const userId = new ObjectId(req.params.id);
-      const response = await mongodb.getDb().db('Project_week_5_to_8').collection('Users').deleteOne({ _id: userId }, true);
+      const userName = new ObjectId(req.params.Name);
+      const response = await mongodb.getDb().db('Project_week_5_to_8').collection('Users').deleteOne({ userName: userName }, true);
       // console.log(response);
       if (response.deletedCount > 0) {
         res.status(204).send();
