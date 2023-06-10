@@ -66,11 +66,11 @@ const createUser = async (req, res) => {
   
   const updateUser = async (req, res) => {
   try{
-      if (!ObjectId.isValid(req.params.userName)) {
-        return res.status(400).json('Must use a valid user id to find a user.');
+    const userName = req.params.userName;
+      if (!userName) {
+        return res.status(400).json('Must use a valid user name to find a user.');
       }
-    
-    const userName = new ObjectId(req.params.userName);
+
     // be aware of updateOne if you only want to update specific fields
     const user = {
         firstName: req.body.firstName,
@@ -100,11 +100,12 @@ const createUser = async (req, res) => {
   
   const deleteUser = async (req, res) => {
     try {
-      if (!ObjectId.isValid(req.params.userName)) {
-        return res.status(400).json('Must use a valid user id to find a user.');
+      const userName = req.params.Name;
+      if (!userName) {
+        return res.status(400).json('Must use a valid user name to find a user.');
       }
   
-      const userName = new ObjectId(req.params.Name);
+      
       const response = await mongodb.getDb().db('Project_week_5_to_8').collection('Users').deleteOne({ userName: userName }, true);
       // console.log(response);
       if (response.deletedCount > 0) {
