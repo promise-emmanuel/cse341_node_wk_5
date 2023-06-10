@@ -102,11 +102,15 @@ const createUser = async (req, res) => {
     try {
       const userName = req.params.userName;
       if (!userName) {
-        return res.status(400).json('Must use a valid user name to find a user.');
+        return res.status(400).json('Must use a valid user name to delete a user.');
       }
   
       
-      const response = await mongodb.getDb().db('Project_week_5_to_8').collection('Users').deleteOne({ userName: userName }, true);
+      const response = await mongodb
+        .getDb()
+        .db('Project_week_5_to_8')
+        .collection('Users')
+        .deleteOne({ userName: userName }, true);
       // console.log(response);
       if (response.deletedCount > 0) {
         res.status(204).send();
