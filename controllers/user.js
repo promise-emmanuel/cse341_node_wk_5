@@ -100,7 +100,7 @@ const createUser = async (req, res) => {
   
   const deleteUser = async (req, res) => {
     try {
-      const userName = req.params.Name;
+      const userName = req.params.userName;
       if (!userName) {
         return res.status(400).json('Must use a valid user name to find a user.');
       }
